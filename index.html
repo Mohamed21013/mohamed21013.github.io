@@ -8,12 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root {
+  --primary:#6366F1;
+  --secondary:#06B6D4;
+  --bg:#F8FAFC;
+  --text:#1E293B;
+}
+
 * {margin:0; padding:0; box-sizing:border-box;}
+
 body {
   font-family: 'Inter', sans-serif;
-  background:#f9fafb;
-  color:#1f2937;
-  line-height:1.6;
+  background:var(--bg);
+  color:var(--text);
 }
 
 .container {
@@ -32,14 +39,14 @@ body {
   width:120px;
   height:120px;
   border-radius:50%;
-  background:#0f766e;
+  background:var(--primary);
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:40px;
   margin:auto;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(99,102,241,0.4);
 }
 
 .hero h1 {
@@ -48,14 +55,13 @@ body {
 }
 
 .hero h2 {
-  color:#0f766e;
-  font-weight:500;
+  color:var(--primary);
 }
 
 .hero p {
   max-width:500px;
   margin:15px auto;
-  color:#6b7280;
+  color:#64748b;
 }
 
 .buttons a {
@@ -65,16 +71,26 @@ body {
   border-radius:10px;
   text-decoration:none;
   font-weight:500;
+  transition:0.3s;
 }
 
 .btn-primary {
-  background:#0f766e;
+  background:var(--primary);
   color:#fff;
+}
+
+.btn-primary:hover {
+  background:#4F46E5;
+  transform:scale(1.05);
 }
 
 .btn-outline {
   border:1px solid #d1d5db;
   color:#374151;
+}
+
+.btn-outline:hover {
+  background:#fff;
 }
 
 /* CARDS */
@@ -94,12 +110,12 @@ body {
 }
 
 .card:hover {
-  transform:translateY(-5px);
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 15px 30px rgba(0,0,0,0.08);
 }
 
 .card h2 {
-  color:#0f766e;
-  font-size:28px;
+  color:var(--primary);
 }
 
 /* SECTION */
@@ -116,13 +132,24 @@ body {
   margin-bottom:10px;
 }
 
+/* ANIMATION */
+.fade-up {
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity:1;
+  transform:translateY(0);
+}
+
 /* FOOTER */
 .footer {
   text-align:center;
   margin-top:60px;
   color:#9ca3af;
 }
-
 </style>
 </head>
 
@@ -131,20 +158,20 @@ body {
 <div class="container">
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero fade-up">
   <div class="avatar">MI</div>
   <h1>Mohamed Ibrahim</h1>
   <h2>Data Analyst</h2>
-  <p>I transform raw data into actionable business insights using Power BI, SQL, and Python.</p>
+  <p>I transform raw data into actionable insights using Power BI, SQL, and Python.</p>
 
   <div class="buttons">
     <a href="#projects" class="btn-primary">View Projects</a>
-    <a href="#" class="btn-outline">Download CV</a>
+    <a href="cv.pdf" class="btn-outline">Download CV</a>
   </div>
 </div>
 
 <!-- ACHIEVEMENTS -->
-<div class="cards">
+<div class="cards fade-up">
   <div class="card">
     <h2>20%</h2>
     <p>Reduced manual processing using Python automation.</p>
@@ -152,26 +179,27 @@ body {
 
   <div class="card">
     <h2>100%</h2>
-    <p>Data accuracy using complex SQL joins.</p>
+    <p>Improved data accuracy using SQL techniques.</p>
   </div>
 
   <div class="card">
     <h2>2</h2>
-    <p>End-to-end Power BI dashboards delivered.</p>
+    <p>Power BI dashboards delivered.</p>
   </div>
 </div>
 
 <!-- ABOUT -->
-<div class="section">
+<div class="section fade-up">
   <h2>About Me</h2>
   <p>
-    Detail-oriented Data Analyst skilled in Python, SQL, and Power BI.
-    I specialize in building dashboards, cleaning data, and delivering insights that drive business decisions.
+    Detail-oriented Data Analyst skilled in Excel, SQL, Power BI, and Python.
+    I specialize in building dashboards, cleaning data, and delivering insights
+    that support business decisions.
   </p>
 </div>
 
 <!-- PROJECTS -->
-<div class="section" id="projects">
+<div class="section fade-up" id="projects">
   <h2>Projects</h2>
 
   <div class="cards">
@@ -179,36 +207,50 @@ body {
     <div class="card project">
       <h3>AdventureWorks Dashboard</h3>
       <p>
-        Built an interactive Power BI dashboard analyzing sales, profit, and customer behavior.
-        Delivered insights on top products and regional performance.
+        <img src="https://drive.google.com/file/d/1Hx52bndG4gsqX4knk21WWkJtPA6ApCwc/view?usp=sharing" style="width:100%; border-radius:10px; margin-top:10px;">
+        Built an interactive Power BI dashboard analyzing sales, profit, and customer trends.
+        Provided insights into top-performing products and regions.
       </p>
     </div>
 
     <div class="card project">
       <h3>Maven Market Analysis</h3>
       <p>
+        <img src="https://drive.google.com/file/d/1w2HXp59GsqRFsyg9KbxlmjFOXAhQxsvz/view?usp=sharing" style="width:100%; border-radius:10px; margin-top:10px;">
         End-to-end retail analytics project using SQL & Power BI.
-        Tracked KPIs, sales trends, and improved decision-making visibility.
+        Tracked KPIs, sales performance, and business trends.
       </p>
     </div>
 
   </div>
 </div>
-<a href="#">https://github.com/Mohamed21013/Maven-Market-Analysis</a>
-  
+
 <!-- CONTACT -->
-<div class="section">
+<div class="section fade-up">
   <h2>Contact</h2>
-  <p>Email: gendy2101374@gmail.com</p>
-  <p>GitHub: github.com/mohamed21013</p>
-  <p>LinkedIn: linkedin.com/in/mohamed-ibrahim-694903202/</p>
+  <p>Email: your@email.com</p>
+  <p>GitHub: github.com/yourusername</p>
+  <p>LinkedIn: linkedin.com/in/yourname</p>
 </div>
 
-<div class="footer">
+<div class="footer fade-up">
   <p>© 2026 Mohamed Ibrahim</p>
 </div>
 
 </div>
+
+<!-- JS Animation -->
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
